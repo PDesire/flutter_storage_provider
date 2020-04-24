@@ -29,6 +29,8 @@ class StorageWebIndexedDB extends StorageInt {
     var db = await dbFactory.openDatabase(dbPath);
     var database = await sembastStore.record(key).get(db);
 
+    if (database == null) return null;
+
     return database;
   }
 

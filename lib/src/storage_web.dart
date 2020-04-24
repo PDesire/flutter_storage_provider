@@ -21,6 +21,8 @@ class StorageWeb extends Storage {
   Future<Map<String, dynamic>> get(String key) async {
     var database = await window.localStorage[key];
 
+    if (database == null) return null;
+
     return jsonDecode(database);
   }
 

@@ -23,6 +23,8 @@ class StorageSharedPreferences extends Storage {
     var prefs = await SharedPreferences.getInstance();
     var database = await prefs.get(key);
 
+    if (database == null) return null;
+
     return jsonDecode(database);
   }
 
